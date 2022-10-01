@@ -1,0 +1,87 @@
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.csproj.AssemblyReference.cache
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.AssemblyInfoInputs.cache
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.AssemblyInfo.cs
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.csproj.CoreCompileInputs.cache
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\appsettings.json
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\CurrencyAPI.exe
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\CurrencyAPI.deps.json
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\CurrencyAPI.runtimeconfig.json
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\CurrencyAPI.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\ref\CurrencyAPI.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\CurrencyAPI.pdb
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\Dapper.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\Npgsql.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gorde\Desktop\CurrencyAPI\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\scopedcss\bundle\CurrencyAPI.styles.css
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.csproj.CopyComplete
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.dll
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\ref\CurrencyAPI.dll
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.pdb
+C:\Users\gorde\Desktop\CurrencyAPI\obj\Debug\net6.0\CurrencyAPI.genruntimeconfig.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\appsettings.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.exe
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.deps.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.runtimeconfig.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.pdb
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Dapper.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Npgsql.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.csproj.AssemblyReference.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.AssemblyInfoInputs.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.AssemblyInfo.cs
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.csproj.CoreCompileInputs.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\scopedcss\bundle\CurrencyAPI.styles.css
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.csproj.CopyComplete
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\refint\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.pdb
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.genruntimeconfig.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\ref\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\appsettings.json
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.exe
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.deps.json
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.runtimeconfig.json
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\ref\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\CurrencyAPI.pdb
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Dapper.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Npgsql.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.csproj.AssemblyReference.cache
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.AssemblyInfoInputs.cache
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.AssemblyInfo.cs
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.csproj.CoreCompileInputs.cache
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\scopedcss\bundle\CurrencyAPI.styles.css
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.csproj.CopyComplete
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\ref\CurrencyAPI.dll
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.pdb
+C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.genruntimeconfig.cache

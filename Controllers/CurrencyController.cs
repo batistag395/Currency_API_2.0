@@ -30,7 +30,7 @@ namespace CurrencyAPI.Controllers
             }
             else
             {
-                return Results.Ok(findById));
+                return Results.Ok(findById);
             }
         }
         [HttpPatch("AddNewCurrency")]

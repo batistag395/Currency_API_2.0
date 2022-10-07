@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "70EoFjaDVgNeUszeEqqmzAam2sQN0O+uYgcrG4E4O3y7MjEv+a6IZAyhtN2R/QjvKznkJ8YFiLUQvPAezxVpEg==",
+  "dgSpecHash": "sDhA+w/7z1dhaKgbN/8iQwaj95E6iZA+lBR0v24aIQPi7snPegpTTBnZ7N11bntAxvDguvCcvGY02Rt2/hXN4w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\gorde\\Desktop\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
+  "projectFilePath": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\gorde\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\gorde\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",

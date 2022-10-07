@@ -6,7 +6,7 @@ namespace CurrencyAPI.Repository
     {
         //public Product GetById(int id);
         public List<Product> Get();
-        public double ConvertProductPrice(string _productName, string _toCurrency);
+        public double ConvertProductPrice(string _productName, string _toCurrency, string dailyCurrency);
         public void Insert(Product _product);
         public void Update(Product _product);
         public void Delete(string _name);

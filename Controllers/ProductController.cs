@@ -31,9 +31,9 @@ namespace CurrencyAPI.Controllers
             return Results.Ok();
         }
         [HttpPost("ConvertProductPrice")]
-        public IResult ConvertPrice(string _productName, string _toCurrency)
+        public IResult ConvertPrice(string _productName, string _toCurrency, string dailyCurrency)
         {
-            return Results.Ok(_productRepository.ConvertProductPrice(_productName, _toCurrency));
+            return Results.Ok(_productRepository.ConvertProductPrice(_productName, _toCurrency, dailyCurrency));
         }
         [HttpPut("Update Product")]
         public IResult Update(Product _product)

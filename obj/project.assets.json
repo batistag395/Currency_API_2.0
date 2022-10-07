@@ -314,11 +314,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\gorde\\Desktop\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
+      "projectUniqueName": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
       "projectName": "CurrencyAPI",
-      "projectPath": "C:\\Users\\gorde\\Desktop\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
+      "projectPath": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
       "packagesPath": "C:\\Users\\gorde\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\gorde\\Desktop\\Currency_API_Using_Dapper_To_Access_DataBase\\obj\\",
+      "outputPath": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\gorde\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -378,7 +378,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -1,22 +1,21 @@
 ﻿using CurrencyAPI.Model;
+using CurrencyAPI.Repository.Interfaces;
 using Dapper;
 using Npgsql;
 using System.Data;
 
 namespace CurrencyAPI.Repository
 {
-    public class CurrencyRepository : ICurrencyRepository
+    public class CurrencyRepository : BaseRepository, ICurrencyRepository
     {
-        private IDbConnection _conn;
-        public CurrencyRepository()
+        public CurrencyRepository() : base()
         {
-            _conn = new NpgsqlConnection(@"Server=Container_Docker;User ID=postgres;Password=postgrespw;
-                                         Host=host.docker.internal;Port=49153;Database=postgres;");
         }
         public List<Currency> Get()
         {
-            return _conn.Query<Currency>(@"SELECT * FROM ""Currency"" ").ToList();
+           return _conn.Query<Currency>(@"SELECT * FROM ""Currency"" ").ToList();
         }
+
         public Currency GetById(int _id)
         {
             return _conn.QuerySingleOrDefault<Currency>(@"SELECT * FROM ""Currency"" WHERE ""Id"" = @id ", new { Id = _id });
@@ -26,13 +25,22 @@ namespace CurrencyAPI.Repository
             var sql = _conn.Query(@"INSERT INTO ""Currency""(""Name"", ""Rate"") VALUES(@Name, @Rate", _currency );
         }
        
-        public double CalcCurrency(string _fromCurrency, string _toCurrency, double _rate)
+        public string CalcCurrency(string _fromCurrency, string _toCurrency, string date, double _rate)
         {
-            double sql = _conn.QuerySingleOrDefault<double>(@"SELECT ""Rate"" FROM ""Currency"" 
-                                                            WHERE ""Name"" = @name ", new { Name = _fromCurrency });
-            double sql2 = _conn.QuerySingleOrDefault<double>(@"SELECT ""Rate"" FROM ""Currency"" 
-                                                             WHERE ""Name"" = @name ", new { Name = _toCurrency });
-            return _rate * (sql / sql2);
+            double convertCurrency = _conn.QuerySingleOrDefault<double>(@"SELECT (@Rate * dr2.""DailyRate"" / dr.""DailyRate"") FROM ""DailyRate"" AS dr
+                                                                        JOIN ""Currency"" AS c
+                                                                        ON c.""Id"" = dr.""IdCurrency""
+
+                                                                        JOIN ""Currency"" AS c2
+                                                                        ON c2.""Id"" != c.""Id""
+
+                                                                        JOIN ""DailyRate"" AS dr2
+                                                                        ON c2.""Id"" = dr2.""IdCurrency""
+
+                                                                        WHERE c.""Name"" = @NameCurrency AND dr.""Name"" = @Date AND 
+                                                                        c2.""Name"" = @NameFinalCurrency AND dr2.""Name"" = @Date",
+                                                                        new { NameCurrency = _fromCurrency, NameFinalCurrency = _toCurrency, @Date = date, Rate = _rate });
+            return convertCurrency.ToString("F2");
         }
         public void Update(Currency _currency)
         {    

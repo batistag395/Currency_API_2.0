@@ -1,6 +1,6 @@
 ﻿using CurrencyAPI.Model;
 
-namespace CurrencyAPI.Repository
+namespace CurrencyAPI.Repository.Interfaces
 {
     interface ICurrencyRepository
     {
@@ -9,6 +9,6 @@ namespace CurrencyAPI.Repository
         public void Insert(Currency _currency);
         public void Update(Currency _currency);
         public void Delete(int _id);
-        public double CalcCurrency(string _fromCurrency, string _toCurrency, double _rate);
+        public string CalcCurrency(string _fromCurrency, string _toCurrency, string date, double _rate);
     }
 }

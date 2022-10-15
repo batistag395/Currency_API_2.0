@@ -5,6 +5,7 @@ namespace CurrencyAPI.Model
     public class Product
     {
         [Key]
+        public int Id { get; set; }
         public string ProductName { get; set; }
         public double Price { get; set; }
         public int IdCurrency { get; set; }
@@ -12,13 +13,6 @@ namespace CurrencyAPI.Model
         public Product()
         {
                 
-        }
-
-        public Product(string productName, double price, int idProduct)
-        {
-            ProductName = productName;
-            Price = price;
-            IdCurrency = idProduct;
         }
     }
 }

@@ -1,74 +1,96 @@
 ﻿using CurrencyAPI.Model;
+using CurrencyAPI.Model.DTO;
+using CurrencyAPI.Repository.Interfaces;
 using Dapper;
 using Npgsql;
 using System.Data;
 
 namespace CurrencyAPI.Repository
 {
-    public class ProductRepository : IProductRepository
+    public class ProductRepository : BaseRepository, IProductRepository
     {
-        private IDbConnection _conn;
-        public ProductRepository()
+        public ProductRepository() : base()
         {
-            _conn = new NpgsqlConnection(@"Server=Container_Docker;User ID=postgres;Password=postgrespw;
-                                          Host=host.docker.internal;Port=49153;Database=postgres;");
         }
-        public List<Product> Get()
+        public List<ProductDTO> Get()
         {
-            return _conn.Query<Product>(@"SELECT * FROM ""Product"" ").ToList();
+            return _conn.Query<ProductDTO>(@"SELECT * FROM ""Product"" ").ToList();
         }
-        //public Product GetById(int id)
-        //{
-        //    var sql = _conn.QuerySingleOrDefault<Product>(@"SELECT * FROM ""Product"" ");
-        //    return sql;
-        //}
-        public double ConvertProductPrice(string productName, string toCurrency, string dailyRate)
-         {
-            int getDate = _conn.QuerySingleOrDefault<int>(@"SELECT ""Id"" FROM ""Date"" 
-                                                            WHERE ""Name"" = @Name ", 
-                                                            new { Name = dailyRate });
+        public List<ProductDTO> GetById(int id)
+        {
+            return _conn.Query<ProductDTO>(@"select p.""Id"", p.""ProductName"", p.""Price"" as ""ProductPrice"", c.""Name"" as ""CurrencyName"" from ""Product"" as p
+                                            join ""Currency"" as c
+                                            on c.""Id"" = p.""IdCurrency""
+                                            where p.""Id"" = @Id ",
+                                            new {Id = id}).ToList();
+        }
+        public string ConvertProductPrice(string productName, string toCurrency, string dailyRate)
+        {
+            string finalPrice = string.Empty;
 
-            int idCurrency = _conn.QuerySingleOrDefault<int>(@"SELECT ""IdCurrency"" FROM ""Product"" 
-                                                             WHERE ""ProductName"" = @ProductName ",
-                                                             new { ProductName = productName });
 
-            double getDailyValue = _conn.QuerySingleOrDefault<double>(@"SELECT ""DailyRate"" FROM ""DateRate""
-                                                                      WHERE ""IdDate"" = @IdDate AND ""IdCurrency"" = @IdCurrency ",
-                                                                      new {IdDate = getDate, IdCurrency = idCurrency});
+            double finalProductsPrice = _conn.QuerySingleOrDefault<double>(@"SELECT (p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"" ) FROM ""Product"" AS p
+                                                                            JOIN ""DailyRate"" AS dr
+                                                                            ON p.""IdCurrency"" = dr.""IdCurrency""
+                                                                            RIGHT JOIN ""Currency"" AS c
+                                                                            ON c.""Id"" != p.""IdCurrency""
+                                                                            RIGHT JOIN ""DailyRate"" AS dr2
+                                                                            ON c.""Id"" = dr2.""IdCurrency""
+                                                                            WHERE dr.""IdCurrency"" = p.""IdCurrency"" and dr.""Name"" = @Date and 
+                                                                            dr2.""Name"" =  @Date and  p.""ProductName"" = @ProductName and c.""Name"" = @FinalCurrency",
+                                                                            new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency });
 
-            var updateRate = _conn.Execute(@"UPDATE ""Currency"" SET ""Rate"" =@Rate 
-                                           WHERE ""Id"" = @Id ",
-                                           new {Rate = getDailyValue, Id = idCurrency});
+            finalPrice = $"Conversão realizada com sucesso, Valor final = {toCurrency} {finalProductsPrice.ToString("F2")}";
 
-            double getCurrencyProductValue = _conn.QuerySingleOrDefault<double>(@"SELECT ""Rate"" FROM ""Currency"" 
-                                                                                WHERE ""Name"" = @Name ",
-                                                                                new { Name = toCurrency });
 
-            double getProductPrice = _conn.QuerySingleOrDefault<double>(@"SELECT ""Price"" FROM ""Product""
-                                                                        WHERE ""ProductName"" = @ProductName ",
-                                                                        new { ProductName = productName });
+            return finalPrice;
+        }
+        public string toBuyProduct(string productName, string toCurrency, string dailyRate, int id)
+        {
+            int getProductId = _conn.QuerySingleOrDefault<int>(@"SELECT ""Id"" FROM ""Product""
+                                                                WHERE ""ProductName"" = @ProductName ",
+                                                                new { ProductName = productName });
 
-            double sql = _conn.QueryFirstOrDefault<double>(@"SELECT ""Rate"" FROM ""Currency""
-                                                           JOIN ""Product"" ON ""Id"" = @Id ",
-                                                           new { Id = idCurrency });
+            int getPaymentCurrencyId = _conn.QuerySingleOrDefault<int>(@"SELECT ""Id"" FROM ""Currency""
+                                                                        WHERE ""Name"" = @Name ",
+                                                                        new { Name = toCurrency });
 
-            return getProductPrice * (sql / getCurrencyProductValue);
+            double finalProductsPriceBought = _conn.QuerySingleOrDefault<double>(@"SELECT (p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"" ) FROM ""Product"" AS p
+                                                                                JOIN ""DailyRate"" AS dr
+                                                                                ON p.""IdCurrency"" = dr.""IdCurrency""
+                                                                                RIGHT JOIN ""Currency"" AS c
+                                                                                ON c.""Id"" != p.""IdCurrency""
+                                                                                RIGHT JOIN ""DailyRate"" AS dr2
+                                                                                ON c.""Id"" = dr2.""IdCurrency""
+                                                                                WHERE dr.""IdCurrency"" = p.""IdCurrency"" and dr.""Name"" = @Date and 
+                                                                                dr2.""Name"" =  @Date and  p.""ProductName"" = @ProductName and c.""Name"" = @FinalCurrency",
+                                                                                new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency });
+
+            var sqlInsert = _conn.Execute(@"insert into ""UserProduct"" (""IdUser"", ""IdProduct"", ""IdPaymentCurrency"", ""FinalProductPrice"", ""Date"")
+                                            values(@User, @Product, @PaymentCurrency, @FinalPrice, @Date)",
+                                            new { User = id, Product = getProductId, PaymentCurrency = getPaymentCurrencyId, FinalPrice = finalProductsPriceBought, 
+                                            Date = DateTime.Now });
+
+            string finalPrice = $"Compra realizada com sucesso, Valor final = {toCurrency} {finalProductsPriceBought.ToString("F2")}";
+
+            return finalPrice;
         }
         public void Insert(Product product)
         {
             var sql = _conn.Execute(@"INSERT INTO ""Product"" (""ProductName"", ""Price"", ""IdCurrency"") 
-                                    VALUES(@ProductName, @price, @idCurrency) ", product) ;
+                                    VALUES(@ProductName, @price, @idCurrency) ", product);
         }
         public void Update(Product product)
         {
             var sql = _conn.Execute(@"UPDATE ""Product"" 
-                                    SET ""Name"" = @name, ""Price"" = @price, ""IdProduct"" = @idProduct ", 
+                                    SET ""Name"" = @name, ""Price"" = @price, ""IdProduct"" = @idProduct ",
                                     product);
         }
         public void Delete(string name)
         {
             _conn.Execute(@"DELETE FROM ""Product""  
-                            WHERE ""ProductName"" = @ProductName ", new { ProductName = name });
+                            WHERE ""ProductName"" = @ProductName ", 
+                            new { ProductName = name });
         }
     }
 }

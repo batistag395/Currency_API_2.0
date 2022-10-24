@@ -13,7 +13,7 @@ namespace CurrencyAPI.Repository
         }
         public List<EmailMessageDTO> SendEmail(string productName, int id)
         {
-            var message = _conn.Query<EmailMessageDTO>(@" select em.""Id"", em.""Title"",
+            var message = _conn.Query<EmailMessageDTO>(@" select em.""Title"",
                                                     replace(
                                                         replace(
                                                             replace(

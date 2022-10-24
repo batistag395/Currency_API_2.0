@@ -31,7 +31,7 @@ namespace CurrencyAPI.Repository
             string finalPrice = string.Empty;
 
 
-            double finalProductsPrice = _conn.QuerySingleOrDefault<double>(@"SELECT (p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"" ) FROM ""Product"" AS p
+            double finalProductsPrice = _conn.QuerySingleOrDefault<double>(@"SELECT ROUND(p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"", 2) FROM ""Product"" AS p
                                                                             JOIN ""DailyRate"" AS dr
                                                                             ON p.""IdCurrency"" = dr.""IdCurrency""
                                                                             RIGHT JOIN ""Currency"" AS c
@@ -42,7 +42,7 @@ namespace CurrencyAPI.Repository
                                                                             dr2.""Name"" =  @Date and  p.""ProductName"" = @ProductName and c.""Name"" = @FinalCurrency",
                                                                             new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency });
 
-            finalPrice = $"Conversão realizada com sucesso, Valor final = {toCurrency} {Math.Round(finalProductsPrice, 2)}";
+            finalPrice = $"Conversão realizada com sucesso, Valor final = {toCurrency} {finalProductsPrice}";
 
 
             return finalPrice;
@@ -52,7 +52,7 @@ namespace CurrencyAPI.Repository
             toCurrency = toCurrency.ToUpper();
 
             double finalProductsPriceBought = _conn.Execute(@"INSERT INTO ""UserProduct"" (""IdUser"", ""IdProduct"", ""IdPaymentCurrency"", ""FinalProductPrice"", ""Date"")
-                                                            SELECT u.""Id"", p.""Id"", c.""Id"",  (p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"" ), @DailyDate FROM ""Product"" AS p
+                                                            SELECT u.""Id"", p.""Id"", c.""Id"",  ROUND(p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"", 2), @DailyDate FROM ""Product"" AS p
                                                             join ""User"" as u on u.""Id"" = @UserId  
                                                             JOIN ""DailyRate"" AS dr
                                                             ON p.""IdCurrency"" = dr.""IdCurrency""

@@ -8,10 +8,10 @@ namespace CurrencyAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CurrencyController : ControllerBase
+    public class CurrenciesController : ControllerBase
     {
         private ICurrencyRepository _currencyRepository;
-        public CurrencyController()
+        public CurrenciesController()
         {
             _currencyRepository = new CurrencyRepository();
         }

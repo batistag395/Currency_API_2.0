@@ -8,11 +8,13 @@ namespace CurrencyAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductController : ControllerBase
+    public class ProductsController : ControllerBase
     {
+        ISendEmailRepository _sendEmailRepository;
         IProductRepository _productRepository;
-        public ProductController()
+        public ProductsController()
         {
+            _sendEmailRepository = new SendEmailRepository();
             _productRepository = new ProductRepository();
         }
         [HttpGet("GetProducts")]
@@ -39,15 +41,16 @@ namespace CurrencyAPI.Controllers
         [HttpPost("toBuyProduct")]
         public IResult toBuyProduct(string _productName, string _toCurrency, string dailyCurrency, int id)
         {
-            return Results.Ok(_productRepository.toBuyProduct(_productName, _toCurrency, dailyCurrency, id));
+            _productRepository.toBuyProduct(_productName, _toCurrency, dailyCurrency, id);
+            return Results.Ok(_sendEmailRepository.SendEmail(_productName, id));
         }
-        [HttpPut("Update Product")]
+        [HttpPut("UpdateProduct")]
         public IResult Update(Product _product)
         {
             _productRepository.Update(_product);
             return Results.Ok();
         }
-        [HttpDelete("Delete Product")]
+        [HttpDelete("DeleteProduct")]
         public IResult Delete(string _name)
         {
             _productRepository.Delete(_name);

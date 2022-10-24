@@ -7,7 +7,6 @@
         public string PaymentCurrecyName { get; set; }
         public double FinalPrice { get; set; }
         public DateTime SaleDate { get; set; }
-            
         public SalesDTO()
         {
 

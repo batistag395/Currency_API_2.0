@@ -9,6 +9,6 @@ namespace CurrencyAPI.Repository.Interfaces
         public void Insert(Currency _currency);
         public void Update(Currency _currency);
         public void Delete(int _id);
-        public double CalcCurrency(string _fromCurrency, string _toCurrency, string date, double _rate);
+        public double CalcCurrency(string _fromCurrency, string _toCurrency, string date, decimal _rate);
     }
 }

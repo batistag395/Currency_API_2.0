@@ -25,23 +25,11 @@ namespace CurrencyAPI.Repository
             var sql = _conn.Query(@"INSERT INTO ""Currency""(""Name"") VALUES(@Name, @Rate", _currency);
         }
 
-        public double CalcCurrency(string _fromCurrency, string _toCurrency, string date, double _rate)
+        public double CalcCurrency(string _fromCurrency, string _toCurrency, string _date, decimal _rate)
         {
-            double convertCurrency = _conn.QuerySingleOrDefault<double>(@"SELECT (@Rate * dr2.""DailyRate"" / dr.""DailyRate"") FROM ""DailyRate"" AS dr
-                                                                        JOIN ""Currency"" AS c
-                                                                        ON c.""Id"" = dr.""IdCurrency""
+           return _conn.QuerySingleOrDefault<double>(@"select * from ""ConvertCurrency""(@initial_currency, @final_currency, @daily_rate, @rate)",
+                                                     new { initial_currency = _fromCurrency, final_currency = _toCurrency, daily_rate = _date, rate = _rate });
 
-                                                                        JOIN ""Currency"" AS c2
-                                                                        ON c2.""Id"" != c.""Id""
-
-                                                                        JOIN ""DailyRate"" AS dr2
-                                                                        ON c2.""Id"" = dr2.""IdCurrency""
-
-                                                                        WHERE c.""Name"" = @NameCurrency AND dr.""Name"" = @Date AND 
-                                                                        c2.""Name"" = @NameFinalCurrency AND dr2.""Name"" = @Date",
-                                                                        new { NameCurrency = _fromCurrency, NameFinalCurrency = _toCurrency, @Date = date, Rate = _rate });
-
-            return Math.Round(convertCurrency, 2);
         }
         public void Update(Currency _currency)
         {

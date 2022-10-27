@@ -14,16 +14,11 @@ namespace CurrencyAPI.Repository
         }
         public List<ProductDTO> Get()
         {
-            return _conn.Query<ProductDTO>(@"select p.""Id"", p.""ProductName"", p.""Price"" as ""ProductPrice"", c.""Name"" as ""CurrencyName"" from ""Product"" as p
-                                            join ""Currency"" as c
-                                            on c.""Id"" = p.""IdCurrency"" ").ToList();
+            return _conn.Query<ProductDTO>(@"select * from ""GetProduct""();").ToList();
         }
         public List<ProductDTO> GetById(int id)
         {
-            return _conn.Query<ProductDTO>(@"select p.""Id"", p.""ProductName"", p.""Price"" as ""ProductPrice"", c.""Name"" as ""CurrencyName"" from ""Product"" as p
-                                            join ""Currency"" as c
-                                            on c.""Id"" = p.""IdCurrency""
-                                            where p.""Id"" = @Id ",
+            return _conn.Query<ProductDTO>(@"select * from ""GetProduct""(@Id);",
                                             new {Id = id}).ToList();
         }
         public string ConvertProductPrice(string productName, string toCurrency, string dailyRate)
@@ -31,15 +26,7 @@ namespace CurrencyAPI.Repository
             string finalPrice = string.Empty;
 
 
-            double finalProductsPrice = _conn.QuerySingleOrDefault<double>(@"SELECT ROUND(p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"", 2) FROM ""Product"" AS p
-                                                                            JOIN ""DailyRate"" AS dr
-                                                                            ON p.""IdCurrency"" = dr.""IdCurrency""
-                                                                            RIGHT JOIN ""Currency"" AS c
-                                                                            ON dr.""IdCurrency"" is not null
-                                                                            RIGHT JOIN ""DailyRate"" AS dr2
-                                                                            ON c.""Id"" = dr2.""IdCurrency""
-                                                                            WHERE dr.""IdCurrency"" = p.""IdCurrency"" and dr.""Name"" = @Date and 
-                                                                            dr2.""Name"" =  @Date and  p.""ProductName"" = @ProductName and c.""Name"" = @FinalCurrency",
+            double finalProductsPrice = _conn.QuerySingleOrDefault<double>(@"select * from ""ConvertProductPrice""(@ProductName, @Date, @FinalCurrency);",
                                                                             new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency });
 
             finalPrice = $"Conversão realizada com sucesso, Valor final = {toCurrency} {finalProductsPrice}";
@@ -51,18 +38,8 @@ namespace CurrencyAPI.Repository
         {
             toCurrency = toCurrency.ToUpper();
 
-            double finalProductsPriceBought = _conn.Execute(@"INSERT INTO ""UserProduct"" (""IdUser"", ""IdProduct"", ""IdPaymentCurrency"", ""FinalProductPrice"", ""Date"")
-                                                            SELECT u.""Id"", p.""Id"", c.""Id"",  ROUND(p.""Price"" * dr.""DailyRate"" / dr2.""DailyRate"", 2), @DailyDate FROM ""Product"" AS p
-                                                            join ""User"" as u on u.""Id"" = @UserId  
-                                                            JOIN ""DailyRate"" AS dr
-                                                            ON p.""IdCurrency"" = dr.""IdCurrency""
-                                                            RIGHT JOIN ""Currency"" AS c
-                                                            ON dr.""IdCurrency"" is not null
-                                                            RIGHT JOIN ""DailyRate"" AS dr2
-                                                            ON c.""Id"" = dr2.""IdCurrency""
-                                                            WHERE dr.""IdCurrency"" = p.""IdCurrency"" and dr.""Name"" = @Date and 
-                                                            dr2.""Name"" =  @Date and  p.""ProductName"" = @ProductName and c.""Name"" = @FinalCurrency",
-                                                            new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency, UserId = id, DailyDate = DateTime.Now });
+            double finalProductsPriceBought = _conn.Execute(@"select ""ToBuyProduct""(@ProductName, @FinalCurrency, @Date,   @UserId)",
+                                                            new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency, UserId = id});
 
         }
         public void Insert(Product product)

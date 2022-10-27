@@ -41,7 +41,7 @@ namespace CurrencyAPI.Controllers
             return Results.Ok();
         }
         [HttpPost("CalculateCurrecy")]
-        public IResult CalcCurrency(string _fromCurrency, string _toCurrency, string date, double _rate)
+        public IResult CalcCurrency(string _fromCurrency, string _toCurrency, string date, decimal _rate)
         {
             return Results.Ok(_currencyRepository.CalcCurrency(_fromCurrency, _toCurrency, date, _rate));
         }

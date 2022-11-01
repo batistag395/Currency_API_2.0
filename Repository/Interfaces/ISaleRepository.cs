@@ -5,7 +5,7 @@ namespace CurrencyAPI.Repository.Interfaces
 {
     interface ISaleRepository
     {
-        public List<SalesDTO> get();
-        public List<SalesDTO> getById(int id);
+        public List<SalesDTO> GetAll(); 
+        public SalesDTO GetById(object id);
     }
 }

@@ -7,19 +7,23 @@ using System.Data;
 
 namespace CurrencyAPI.Repository
 {
-    public class ProductRepository : BaseRepository, IProductRepository
+    public class ProductRepository : BaseRepository<ProductDTO>, IProductRepository
     {
         public ProductRepository() : base()
         {
         }
-        public List<ProductDTO> Get()
+        public override void Insert(ProductDTO product)
+        {
+            _conn.Execute(@"select ""InsertProduct""(@ProductName, @ProductPrice, @CurrencyName)", product);
+
+        }
+        public override List<ProductDTO> GetAll()
         {
             return _conn.Query<ProductDTO>(@"select * from ""GetProduct""();").ToList();
         }
-        public List<ProductDTO> GetById(int id)
+        public override ProductDTO GetById(object id)
         {
-            return _conn.Query<ProductDTO>(@"select * from ""GetProduct""(@Id);",
-                                            new {Id = id}).ToList();
+            return _conn.QuerySingleOrDefault<ProductDTO>(@"select * from ""GetProduct""(@Id);", new {Id = id});
         }
         public string ConvertProductPrice(string productName, string toCurrency, string dailyRate)
         {
@@ -40,24 +44,6 @@ namespace CurrencyAPI.Repository
 
             double finalProductsPriceBought = _conn.Execute(@"select ""ToBuyProduct""(@ProductName, @FinalCurrency, @Date,   @UserId)",
                                                             new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency, UserId = id});
-
-        }
-        public void Insert(Product product)
-        {
-            var sql = _conn.Execute(@"INSERT INTO ""Product"" (""ProductName"", ""Price"", ""IdCurrency"") 
-                                    VALUES(@ProductName, @price, @idCurrency) ", product);
-        }
-        public void Update(Product product)
-        {
-            var sql = _conn.Execute(@"UPDATE ""Product"" 
-                                    SET ""Name"" = @name, ""Price"" = @price, ""IdProduct"" = @idProduct ",
-                                    product);
-        }
-        public void Delete(string name)
-        {
-            _conn.Execute(@"DELETE FROM ""Product""  
-                            WHERE ""ProductName"" = @ProductName ", 
-                            new { ProductName = name });
         }
     }
 }

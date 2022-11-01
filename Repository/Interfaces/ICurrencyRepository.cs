@@ -2,13 +2,8 @@
 
 namespace CurrencyAPI.Repository.Interfaces
 {
-    interface ICurrencyRepository
+    interface ICurrencyRepository : IBaseRepository<Currency>
     {
-        public List<Currency> Get();
-        public Currency GetById(int _id);
-        public void Insert(Currency _currency);
-        public void Update(Currency _currency);
-        public void Delete(int _id);
-        public double CalcCurrency(string _fromCurrency, string _toCurrency, string date, decimal _rate);
+        double CalcCurrency(string _fromCurrency, string _toCurrency, string date, decimal _rate);
     }
 }

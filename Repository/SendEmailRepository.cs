@@ -5,7 +5,7 @@ using Dapper;
 
 namespace CurrencyAPI.Repository
 {
-    public class SendEmailRepository : BaseRepository, ISendEmailRepository
+    public class SendEmailRepository : BaseRepository<EmailMessage>, ISendEmailRepository
     {
         public SendEmailRepository() : base()
         {

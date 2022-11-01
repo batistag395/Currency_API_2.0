@@ -85,3 +85,4 @@ C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\ne
 C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\ref\CurrencyAPI.dll
 C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.pdb
 C:\Users\gorde\Desktop\Currency_API_Using_Dapper_To_Access_DataBase\obj\Debug\net6.0\CurrencyAPI.genruntimeconfig.cache
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Dapper.SimpleCRUD.dll

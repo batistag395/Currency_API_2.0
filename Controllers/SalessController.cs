@@ -1,4 +1,6 @@
-﻿using CurrencyAPI.Repository;
+﻿using CurrencyAPI.Model;
+using CurrencyAPI.Model.DTO;
+using CurrencyAPI.Repository;
 using CurrencyAPI.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -7,23 +9,10 @@ namespace CurrencyAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SalessController : ControllerBase
+    public class SalessController : BaseController<SalesDTO>
     {
-        private ISaleRepository _salesRepository;
-        public SalessController()
+        public SalessController() : base(new SalesRepository())
         {
-            _salesRepository = new SalesRepository();
-        }
-
-        [HttpGet("GetAll")]
-        public IResult get()
-        {
-            return Results.Ok(_salesRepository.get());
-        }
-        [HttpGet("GetById")]
-        public IResult getById(int id)
-        {
-            return Results.Ok(_salesRepository.getById(id));
-        }  
+        } 
     }
 }

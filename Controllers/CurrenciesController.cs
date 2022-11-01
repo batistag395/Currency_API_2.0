@@ -8,54 +8,17 @@ namespace CurrencyAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CurrenciesController : ControllerBase
+    public class CurrenciesController : BaseController<Currency>
     {
         private ICurrencyRepository _currencyRepository;
-        public CurrenciesController()
+        public CurrenciesController() : base(new CurrencyRepository())
         {
             _currencyRepository = new CurrencyRepository();
-        }
-        [HttpGet("GetCurrencyList")]
-        public IResult GetCurrencyList()
-        {
-            return Results.Ok(_currencyRepository.Get());
-        }
-        [HttpGet("{id}")]
-        public IResult GetById(int id)
-        {
-            var findById = _currencyRepository.GetById(id);
-
-            if (findById == null)
-            {
-                return Results.NotFound();
-            }
-            else
-            {
-                return Results.Ok(findById);
-            }
-        }
-        [HttpPatch("AddNewCurrency")]
-        public IResult AddCurrency(Currency _currency)
-        {
-            _currencyRepository.Insert(_currency);
-            return Results.Ok();
         }
         [HttpPost("CalculateCurrecy")]
         public IResult CalcCurrency(string _fromCurrency, string _toCurrency, string date, decimal _rate)
         {
             return Results.Ok(_currencyRepository.CalcCurrency(_fromCurrency, _toCurrency, date, _rate));
-        }
-        [HttpPut("UpdateCurrency")]
-        public IResult Update(Currency _currency)
-        {
-            _currencyRepository.Update(_currency);
-            return Results.Ok();
-        }
-        [HttpDelete("DeleteCurrency")]
-        public IResult Update(int _id)
-        {
-            _currencyRepository.Delete(_id);
-            return Results.Ok();
         }
     }
 }

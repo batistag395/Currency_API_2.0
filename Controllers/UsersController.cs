@@ -8,40 +8,12 @@ namespace CurrencyAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseController<User>
     {
-        private IUserRepository userRepository;
-        public UsersController()
+        IUserRepository userRepository;
+        public UsersController() : base(new UserRepository())
         {
             userRepository = new UserRepository();
-        }
-        [HttpGet("Get")]
-        public IResult Get()
-        {
-            return Results.Ok(userRepository.Get());
-        }
-        [HttpGet("{id}")]
-        public IResult GetById(int id)
-        {
-            return Results.Ok(userRepository.GetById(id));
-        }
-        [HttpPost("Insert")]
-        public IResult insert(User user)
-        {
-            userRepository.insert(user);
-            return Results.Ok();
-        }
-        [HttpPut("Update")]
-        public IResult update(User user)
-        {
-            userRepository.Update(user);
-            return Results.Ok();
-        }
-        [HttpDelete("{id}")]
-        public IResult delete(int id)
-        {
-            userRepository.Delete(id);
-            return Results.Ok();
         }
     }
 }

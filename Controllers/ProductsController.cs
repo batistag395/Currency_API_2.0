@@ -13,9 +13,9 @@ namespace CurrencyAPI.Controllers
     {
         ISendEmailRepository _sendEmailRepository;
         IProductRepository _productRepository;
-        public ProductsController() : base(new ProductRepository())
+        public ProductsController(IConfiguration configuration) : base(new ProductRepository())
         {
-            _sendEmailRepository = new SendEmailRepository();
+            _sendEmailRepository = new SendEmailRepository(configuration);
             _productRepository = new ProductRepository();
         }
        
@@ -28,7 +28,9 @@ namespace CurrencyAPI.Controllers
         public IResult toBuyProduct(string _productName, string _toCurrency, string dailyCurrency, int id)
         {
             _productRepository.toBuyProduct(_productName, _toCurrency, dailyCurrency, id);
-            return Results.Ok(_sendEmailRepository.SendEmail(_productName, id));
+            _sendEmailRepository.SendEmail(_productName, id);
+            return Results.Ok();
+            //return Results.Ok(_sendEmailRepository.SendMessage(_productName, id));
         }
     }
 }

@@ -5,6 +5,7 @@ namespace CurrencyAPI.Repository.Interfaces
 {
     public interface ISendEmailRepository
     {
-        List<EmailMessageDTO> SendEmail(string productName, int id);
+        List<EmailMessageDTO> SendMessage(string productName, int id);
+        void SendEmail(string productName, int id);
     }
 }

@@ -11,7 +11,7 @@ namespace CurrencyAPI.Controllers
     {
         private IBaseRepository<T> _baseRepository;
 
-        public BaseController(IBaseRepository<T> baseRepository) 
+        public BaseController(IBaseRepository<T> baseRepository)
         {
             _baseRepository = baseRepository;
         }

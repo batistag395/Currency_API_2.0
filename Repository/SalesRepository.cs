@@ -7,9 +7,10 @@ namespace CurrencyAPI.Repository
 {
     public class SalesRepository : BaseRepository<SalesDTO>, ISaleRepository
     {
-        public SalesRepository() : base()
+        IConfiguration _configuration;
+        public SalesRepository(IConfiguration configuration) : base(configuration)
         {
-
+            _configuration = configuration;
         }
         public override List<SalesDTO> GetAll()
         {

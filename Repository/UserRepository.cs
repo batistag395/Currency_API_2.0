@@ -6,9 +6,10 @@ namespace CurrencyAPI.Repository
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository() : base()
+        IConfiguration _configuration;
+        public UserRepository(IConfiguration configuration) : base(configuration)
         {
-
+            _configuration = configuration;
         }
     }
 }

@@ -1,7 +1,6 @@
 ﻿using CurrencyAPI.Model;
 using CurrencyAPI.Repository;
 using CurrencyAPI.Repository.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CurrencyAPI.Controllers
@@ -11,9 +10,11 @@ namespace CurrencyAPI.Controllers
     public class CurrenciesController : BaseController<Currency>
     {
         private ICurrencyRepository _currencyRepository;
-        public CurrenciesController() : base(new CurrencyRepository())
+        IConfiguration _configuration;
+        public CurrenciesController(IConfiguration configuration) : base(new CurrencyRepository(configuration))
         {
-            _currencyRepository = new CurrencyRepository();
+            _currencyRepository = new CurrencyRepository(configuration);
+            _configuration = configuration;
         }
         [HttpPost("CalculateCurrecy")]
         public IResult CalcCurrency(string _fromCurrency, string _toCurrency, string date, decimal _rate)

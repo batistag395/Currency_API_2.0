@@ -11,8 +11,10 @@ namespace CurrencyAPI.Controllers
     [ApiController]
     public class SalessController : BaseController<SalesDTO>
     {
-        public SalessController() : base(new SalesRepository())
+        IConfiguration _configuration;
+        public SalessController(IConfiguration configuration) : base(new SalesRepository(configuration))
         {
-        } 
+            _configuration = configuration;
+        }
     }
 }

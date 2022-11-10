@@ -10,10 +10,10 @@ namespace CurrencyAPI.Controllers
     [ApiController]
     public class UsersController : BaseController<User>
     {
-        IUserRepository userRepository;
-        public UsersController() : base(new UserRepository())
+        IConfiguration _configuration;
+        public UsersController(IConfiguration configuration) : base(new UserRepository(configuration))
         {
-            userRepository = new UserRepository();
+            _configuration = configuration;
         }
     }
 }

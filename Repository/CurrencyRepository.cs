@@ -8,8 +8,10 @@ namespace CurrencyAPI.Repository
 {
     public class CurrencyRepository : BaseRepository<Currency>, ICurrencyRepository
     {
-        public CurrencyRepository() : base()
+        IConfiguration _configuration;
+        public CurrencyRepository(IConfiguration configuration) : base(configuration)
         {
+            _configuration = configuration;
         }
         public override List<Currency> GetAll()
         {

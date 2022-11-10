@@ -4,6 +4,7 @@ using CurrencyAPI.Repository;
 using CurrencyAPI.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Options;
 
 namespace CurrencyAPI.Controllers
 {
@@ -13,12 +14,12 @@ namespace CurrencyAPI.Controllers
     {
         ISendEmailRepository _sendEmailRepository;
         IProductRepository _productRepository;
-        public ProductsController(IConfiguration configuration) : base(new ProductRepository())
+        public ProductsController(IConfiguration configuration) : base(new ProductRepository(configuration))
         {
             _sendEmailRepository = new SendEmailRepository(configuration);
-            _productRepository = new ProductRepository();
+            _productRepository = new ProductRepository(configuration);
         }
-       
+
         [HttpPost("ConvertProductPrice")]
         public IResult ConvertPrice(string _productName, string _toCurrency, string dailyCurrency)
         {

@@ -9,8 +9,10 @@ namespace CurrencyAPI.Repository
 {
     public class ProductRepository : BaseRepository<ProductDTO>, IProductRepository
     {
-        public ProductRepository() : base()
+        IConfiguration _configuration;
+        public ProductRepository(IConfiguration configuration) : base(configuration)
         {
+            _configuration = configuration;
         }
         public override void Insert(ProductDTO product)
         {

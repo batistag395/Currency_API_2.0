@@ -2,21 +2,24 @@
 using CurrencyAPI.Model.DTO;
 using CurrencyAPI.Repository.Interfaces;
 using Dapper;
+using Microsoft.Extensions.Options;
 using System.Net;
 using System.Net.Mail;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CurrencyAPI.Repository
 {
     public class SendEmailRepository : BaseRepository<EmailMessage>, ISendEmailRepository
     {
 
-        readonly IConfiguration _configuration;
-        public SendEmailRepository(IConfiguration configuration) : base()
+        IConfiguration _configuration;
+        IConvertDataRepository _convertDataRepository;
+        public SendEmailRepository(IConfiguration configuration) : base(configuration)
         {
+            _convertDataRepository = new ConvertDataRepository(configuration);
             _configuration = configuration;
-        }
-       
+        }           
         public List<EmailMessageDTO> SendMessage(string productName, int id)
         {
             var message = _conn.Query<EmailMessageDTO>(@"select * from ""SendEmailSuccesfullyBought""(@UserId, @ProductName);", 
@@ -25,10 +28,14 @@ namespace CurrencyAPI.Repository
         }
         public void SendEmail(string productName, int id)
         {
-            string email = _configuration.GetSection("EnailDate").GetSection("Email").Value;
-            string password = _configuration.GetSection("EnailDate").GetSection("PassWord").Value;
+            var conn = _convertDataRepository.decryptData(_configuration.GetConnectionString("conn"));
 
-            string userEmail = _conn.QuerySingleOrDefault<string>(@"select ""Email"" from ""User"" where ""Id"" = @Id ", new { Id = id });
+            var email = _convertDataRepository.decryptData(_configuration.GetValue<string>("EmailData:Email"));
+
+            var password = _convertDataRepository.decryptData(_configuration.GetValue<string>("EmailData:PassWord")) ;
+
+            var userEmail = _conn.QuerySingleOrDefault<string>(@"select ""Email"" from ""User"" where ""Id"" = @Id ", new { Id = id });
+            
             MailMessage mailMessage = new($"{email}", $"`{userEmail}");
 
             mailMessage.Subject = $"Compra realizada com sucesso!";
@@ -37,11 +44,12 @@ namespace CurrencyAPI.Repository
             mailMessage.SubjectEncoding = Encoding.GetEncoding("UTF-8");
             mailMessage.BodyEncoding = Encoding.GetEncoding("UTF-8");
 
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+            SmtpClient smtpClient = new SmtpClient();
 
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new NetworkCredential($"{email}", $"{password}");
-
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.Port = 587;
             smtpClient.EnableSsl = true;
 
             smtpClient.Send(mailMessage);
@@ -50,5 +58,6 @@ namespace CurrencyAPI.Repository
             Console.ReadLine();
           
         }
+
     }
 }

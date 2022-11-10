@@ -1,20 +1,28 @@
 ﻿using CurrencyAPI.Repository.Interfaces;
 using Dapper;
+using Microsoft.Extensions.Configuration;
 using Npgsql;
 using System.Data;
 
 namespace CurrencyAPI.Repository
 {
-    public class BaseRepository<T> : IBaseRepository<T> where T : class
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : class
     {
         internal IDbConnection _conn;
-        IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
-            .Build();
-        public BaseRepository()
+        IConfiguration _configuration;
+        IConvertDataRepository _convertDataRepository;
+        IConfigurationRoot _configurationRoot = new ConfigurationBuilder()
+          .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+          .AddJsonFile("appsettings.json")
+          .Build();
+        
+        public BaseRepository(IConfiguration configuration)
         {
-            _conn = new NpgsqlConnection(configuration.GetConnectionString("conn"));
+            _convertDataRepository = new ConvertDataRepository(configuration);
+            string conn = _configurationRoot.GetConnectionString("conn");
+            conn = _convertDataRepository.decryptData(conn);
+            _configuration = configuration;
+            _conn = new NpgsqlConnection(_convertDataRepository.decryptData(_configurationRoot.GetConnectionString("conn"))) ;
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.PostgreSQL);
         }
         public virtual void Insert(T model)

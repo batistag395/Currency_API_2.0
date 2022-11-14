@@ -96,3 +96,8 @@ C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dappe
 C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\AutoMapper.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Newtonsoft.Json.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Refit.dll

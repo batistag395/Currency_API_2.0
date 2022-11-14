@@ -5,6 +5,7 @@ using CurrencyAPI.Repository.Interfaces;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
+using System.Net;
 
 namespace CurrencyAPI.Controllers
 {
@@ -14,10 +15,12 @@ namespace CurrencyAPI.Controllers
     {
         ISendEmailRepository _sendEmailRepository;
         IProductRepository _productRepository;
-        public ProductsController(IConfiguration configuration) : base(new ProductRepository(configuration))
+        IFindAddressByCepRepository _findAddressByCepRepository;
+        public ProductsController(IFindAddressByCepRepository findAddressByCepRepository,IConfiguration configuration) : base(new ProductRepository(configuration))
         {
             _sendEmailRepository = new SendEmailRepository(configuration);
             _productRepository = new ProductRepository(configuration);
+            _findAddressByCepRepository = findAddressByCepRepository;
         }
 
         [HttpPost("ConvertProductPrice")]
@@ -32,6 +35,12 @@ namespace CurrencyAPI.Controllers
             _sendEmailRepository.SendEmail(_productName, id);
             return Results.Ok();
             //return Results.Ok(_sendEmailRepository.SendMessage(_productName, id));
+        }
+        [HttpGet("GetAddressByCep")]
+        public async Task<IResult> findAddressByCep(string cep)
+        {
+            var response = await _findAddressByCepRepository.findAddressByCep(cep);
+            return Results.Ok(response);
         }
     }
 }

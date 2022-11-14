@@ -1,4 +1,6 @@
 using CurrencyAPI.Model;
+using CurrencyAPI.Repository;
+using CurrencyAPI.Repository.Interfaces;
 using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +11,8 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddSingleton<IFindAddressByCepRepository, FindAddressByCepRepository>();
 
 var app = builder.Build();
 

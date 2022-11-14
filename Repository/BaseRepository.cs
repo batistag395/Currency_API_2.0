@@ -18,10 +18,8 @@ namespace CurrencyAPI.Repository
         
         public BaseRepository(IConfiguration configuration)
         {
-            _convertDataRepository = new ConvertDataRepository(configuration);
-            string conn = _configurationRoot.GetConnectionString("conn");
-            conn = _convertDataRepository.decryptData(conn);
             _configuration = configuration;
+            _convertDataRepository = new ConvertDataRepository(configuration);
             _conn = new NpgsqlConnection(_convertDataRepository.decryptData(_configurationRoot.GetConnectionString("conn"))) ;
             SimpleCRUD.SetDialect(SimpleCRUD.Dialect.PostgreSQL);
         }

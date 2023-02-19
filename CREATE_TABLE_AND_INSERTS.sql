@@ -32,18 +32,37 @@ VALUES('Ipad', 5400, 5)
 
 CREATE TABLE "Adress"(
 		"Id" SERIAL PRIMARY KEY,
-		"IdUser" int not nul,
-		"cep" varchar(25) not null,
-		"logradouro" varchar(200) not null,
-		"complemento" varchar(200) not null,
-		"bairro":  varchar(50) not null,
-		"localidade" varchar(50) not null,
-		"uf": char(3) not null,
-		"ibge":  varchar(100) not null,
-		"gia":  varchar(100) not null,
-		"ddd":  varchar(5) not null,
-		"siafi":  varchar(100) not null,
+		"IdUser" int not null,
+		"Cep" varchar(25) not null,
+		"Logradouro" varchar(200) not null,
+		"Numero" varchar(15) not null,
+		"Complemento" varchar(200) not null,
+		"Bairro"  varchar(50) not null,
+		"Localidade" varchar(50) not null,
+		"Uf" char(3) not null,
+		"Ibge"  varchar(100) not null,
+		"Gia"  varchar(100) not null,
+		"DDD"  varchar(5) not null,
+		"Siafi"  varchar(100) not null,
 
 	CONSTRAINT "FK_ADRESS_USER" FOREIGN KEY ("IdUser") REFERENCES "User" ("Id")
 
 )
+
+CRETE TABLE "ProductData"(
+		id serial PRIMARY KEY,
+		idProduct int,
+			peso varchar(255) not null,
+			formato int,
+			comprimento DECIMAL,
+			altura DECIMAL,
+			largura decimal,
+			maoPropria varchar(1),
+			valorDeclarado decimal,
+			codServico varchar(10),
+			diametro decimal,
+
+			CONSTRAINT "FK_PRODUCTDATA_PRODUCT" FOREIGN KEY (idProduct) REFERENCES "Product" ("Id")
+)
+
+""peso"", ""formato"", ""comprimento"", ""altura"", ""largura"", ""maopropria"", ""valordeclarado"", ""codservico"", ""diametro""

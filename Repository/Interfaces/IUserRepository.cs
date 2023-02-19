@@ -4,6 +4,5 @@ namespace CurrencyAPI.Repository.Interfaces
 {
     public interface IUserRepository
     {
-       
     }
 }

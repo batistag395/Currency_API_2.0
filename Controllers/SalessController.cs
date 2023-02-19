@@ -12,9 +12,16 @@ namespace CurrencyAPI.Controllers
     public class SalessController : BaseController<SalesDTO>
     {
         IConfiguration _configuration;
-        public SalessController(IConfiguration configuration) : base(new SalesRepository(configuration))
+        ISaleRepository _saleRepository;
+        public SalessController(IConfiguration configuration, ISaleRepository saleRepository) : base(new SalesRepository(configuration))
         {
             _configuration = configuration;
+            _saleRepository = saleRepository;
+        }
+        [HttpGet("GetSaleByUser")]
+        public IResult GetSaleByUser(int id)
+        {
+            return Results.Ok(_saleRepository.GetByUser(id));
         }
     }
 }

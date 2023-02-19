@@ -6,7 +6,7 @@ namespace CurrencyAPI.Repository.Interfaces
 {
     public interface IFindAddressByCepRepository
     {
-        [Get("/ws/{cep}/json")]
+        //[Get("/ws/{cep}/json")]
         Task<FindAddressByCep> findAddressByCep(string cep);
     }
 }

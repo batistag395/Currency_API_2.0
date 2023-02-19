@@ -26,5 +26,9 @@ namespace CurrencyAPI.Model
         public string DDD { get; set; }
         [JsonProperty("siafi")]
         public string Siafi { get; set; }
+        public FindAddressByCep()
+        {
+
+        }
     }
 }

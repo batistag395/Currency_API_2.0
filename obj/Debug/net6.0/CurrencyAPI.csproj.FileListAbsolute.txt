@@ -101,3 +101,24 @@ C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dappe
 C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Refit.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Connected Services\CalcPrecoPrazoWS\ConnectedService.json
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Google.Protobuf.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Grpc.AspNetCore.Server.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Grpc.AspNetCore.Server.ClientFactory.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Grpc.Core.Api.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Grpc.Net.Client.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Grpc.Net.ClientFactory.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Grpc.Net.Common.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.IdentityModel.Protocols.WsTrust.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.Saml.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\Microsoft.IdentityModel.Xml.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.Private.ServiceModel.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.Duplex.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.Federation.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.Http.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.NetTcp.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.Primitives.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.dll
+C:\Users\gorde\Desktop\Projetos C#\treinamento pericles\Currency_API_Using_Dapper_To_Access_DataBase\bin\Debug\net6.0\System.ServiceModel.Security.dll

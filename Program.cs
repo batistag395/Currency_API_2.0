@@ -1,7 +1,6 @@
-using CurrencyAPI.Model;
+using CurrencyAPI.Controllers;
 using CurrencyAPI.Repository;
 using CurrencyAPI.Repository.Interfaces;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +12,9 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IFindAddressByCepRepository, FindAddressByCepRepository>();
+builder.Services.AddSingleton<IUserAddressRepository, UserAddressRepository>();
+builder.Services.AddSingleton<ISaleRepository, SalesRepository>();
+builder.Services.AddTransient<ICalcPrecoPrazoRepository, CalcPrecoPrazoRepository>();
 
 var app = builder.Build();
 

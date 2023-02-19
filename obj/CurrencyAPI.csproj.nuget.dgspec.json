@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj": {}
+    "C:\\Users\\gorde\\Desktop\\Projetos\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj": {
+    "C:\\Users\\gorde\\Desktop\\Projetos\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
+        "projectUniqueName": "C:\\Users\\gorde\\Desktop\\Projetos\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
         "projectName": "CurrencyAPI",
-        "projectPath": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
+        "projectPath": "C:\\Users\\gorde\\Desktop\\Projetos\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\CurrencyAPI.csproj",
         "packagesPath": "C:\\Users\\gorde\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\gorde\\Desktop\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\obj\\",
+        "outputPath": "C:\\Users\\gorde\\Desktop\\Projetos\\Projetos C#\\treinamento pericles\\Currency_API_Using_Dapper_To_Access_DataBase\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\gorde\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,6 +56,16 @@
               "target": "Package",
               "version": "[2.3.0, )"
             },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.40.0, )"
+            },
+            "Microsoft.Extensions.ApiDescription.Client": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.0.0, )"
+            },
             "Microsoft.Extensions.Configuration.FileExtensions": {
               "target": "Package",
               "version": "[6.0.0, )"
@@ -63,6 +73,16 @@
             "Microsoft.Extensions.Configuration.Json": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "NSwag.ApiDescription.Client": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[13.0.5, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.1, )"
             },
             "Newtonsoft.Json.Bson": {
               "target": "Package",
@@ -83,6 +103,26 @@
             "System.Configuration.ConfigurationManager": {
               "target": "Package",
               "version": "[7.0.0, )"
+            },
+            "System.ServiceModel.Duplex": {
+              "target": "Package",
+              "version": "[4.8.*, )"
+            },
+            "System.ServiceModel.Federation": {
+              "target": "Package",
+              "version": "[4.8.*, )"
+            },
+            "System.ServiceModel.Http": {
+              "target": "Package",
+              "version": "[4.8.*, )"
+            },
+            "System.ServiceModel.NetTcp": {
+              "target": "Package",
+              "version": "[4.8.*, )"
+            },
+            "System.ServiceModel.Security": {
+              "target": "Package",
+              "version": "[4.8.*, )"
             }
           },
           "imports": [

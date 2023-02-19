@@ -3,5 +3,8 @@
   <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
     <Import Project="$(NuGetPackageRoot)microsoft.extensions.apidescription.server\3.0.0\build\Microsoft.Extensions.ApiDescription.Server.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.apidescription.server\3.0.0\build\Microsoft.Extensions.ApiDescription.Server.targets')" />
     <Import Project="$(NuGetPackageRoot)refit\6.3.2\buildTransitive\netstandard2.0\refit.targets" Condition="Exists('$(NuGetPackageRoot)refit\6.3.2\buildTransitive\netstandard2.0\refit.targets')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.apidescription.client\3.0.0\build\Microsoft.Extensions.ApiDescription.Client.targets" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.apidescription.client\3.0.0\build\Microsoft.Extensions.ApiDescription.Client.targets')" />
+    <Import Project="$(NuGetPackageRoot)nswag.apidescription.client\13.0.5\build\NSwag.ApiDescription.Client.targets" Condition="Exists('$(NuGetPackageRoot)nswag.apidescription.client\13.0.5\build\NSwag.ApiDescription.Client.targets')" />
+    <Import Project="$(NuGetPackageRoot)grpc.tools\2.40.0\build\Grpc.Tools.targets" Condition="Exists('$(NuGetPackageRoot)grpc.tools\2.40.0\build\Grpc.Tools.targets')" />
   </ImportGroup>
 </Project>

@@ -9,11 +9,19 @@ namespace CurrencyAPI.Repository
 {
     public class ProductRepository : BaseRepository<ProductDTO>, IProductRepository
     {
+        ICalcPrecoPrazoRepository _calcPrecoPrazoRepository;
         IConfiguration _configuration;
+        public ProductRepository(ICalcPrecoPrazoRepository calcPrecoPrazoRepository, IConfiguration configuration) : base(configuration)
+        {
+            _calcPrecoPrazoRepository = calcPrecoPrazoRepository;
+            _configuration = configuration;
+        }
+
         public ProductRepository(IConfiguration configuration) : base(configuration)
         {
             _configuration = configuration;
         }
+
         public override void Insert(ProductDTO product)
         {
             _conn.Execute(@"select ""InsertProduct""(@ProductName, @ProductPrice, @CurrencyName)", product);
@@ -25,7 +33,7 @@ namespace CurrencyAPI.Repository
         }
         public override ProductDTO GetById(object id)
         {
-            return _conn.QuerySingleOrDefault<ProductDTO>(@"select * from ""GetProduct""(@Id);", new {Id = id});
+            return _conn.QuerySingleOrDefault<ProductDTO>(@"select * from ""GetProduct""(@Id);", new { Id = id });
         }
         public string ConvertProductPrice(string productName, string toCurrency, string dailyRate)
         {
@@ -45,7 +53,7 @@ namespace CurrencyAPI.Repository
             toCurrency = toCurrency.ToUpper();
 
             double finalProductsPriceBought = _conn.Execute(@"select ""ToBuyProduct""(@ProductName, @FinalCurrency, @Date,   @UserId)",
-                                                            new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency, UserId = id});
+                                                            new { ProductName = productName, Date = dailyRate, FinalCurrency = toCurrency, UserId = id });
         }
     }
 }

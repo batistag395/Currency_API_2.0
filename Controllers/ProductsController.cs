@@ -13,11 +13,15 @@ namespace CurrencyAPI.Controllers
     [ApiController]
     public class ProductsController : BaseController<ProductDTO>
     {
+        IConfiguration _configuration;
         ISendEmailRepository _sendEmailRepository;
         IProductRepository _productRepository;
         IFindAddressByCepRepository _findAddressByCepRepository;
-        public ProductsController(IFindAddressByCepRepository findAddressByCepRepository,IConfiguration configuration) : base(new ProductRepository(configuration))
+        ICalcPrecoPrazoRepository _calcPrecoPrazoRepository;
+        public ProductsController(ICalcPrecoPrazoRepository calcPrecoPrazoRepository, IFindAddressByCepRepository findAddressByCepRepository, IConfiguration configuration) : base(new ProductRepository(configuration))
         {
+            _calcPrecoPrazoRepository = calcPrecoPrazoRepository;
+            _configuration = configuration;
             _sendEmailRepository = new SendEmailRepository(configuration);
             _productRepository = new ProductRepository(configuration);
             _findAddressByCepRepository = findAddressByCepRepository;
@@ -39,8 +43,16 @@ namespace CurrencyAPI.Controllers
         [HttpGet("GetAddressByCep")]
         public async Task<IResult> findAddressByCep(string cep)
         {
+            var userAddress = new List<Task<FindAddressByCep>>();
+            userAddress.Add(_findAddressByCepRepository.findAddressByCep(cep));
+
             var response = await _findAddressByCepRepository.findAddressByCep(cep);
             return Results.Ok(response);
+        }
+        [HttpGet("CalcPrecoPrazo")]
+        public IResult CalcPrecoPrazo(int idProduct, string cepOrigem, string cepDestino)
+        {
+            return Results.Ok(_calcPrecoPrazoRepository.paransToCalculate(idProduct, cepOrigem, cepDestino));
         }
     }
 }
